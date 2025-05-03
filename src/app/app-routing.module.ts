@@ -7,7 +7,7 @@ import { UserService } from './service/services/user.service';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
