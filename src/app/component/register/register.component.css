@@ -1,0 +1,291 @@
+ @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+    .container {
+      max-width: 700px;
+      width: 100%;
+      background-color: #fff;
+      padding: 25px 30px;
+      border-radius: 5px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    }
+    .container .title {
+      font-size: 25px;
+      font-weight: 500;
+      position: relative;
+    }
+    .container .title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 30px;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+    .content form .user-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 20px 0 12px 0;
+    }
+    form .user-details .input-box {
+      margin-bottom: 15px;
+      width: calc(100% / 2 - 20px);
+    }
+    form .input-box span.details {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+    .user-details .input-box input {
+      height: 45px;
+      width: 100%;
+      outline: none;
+      font-size: 16px;
+      border-radius: 5px;
+      padding-left: 15px;
+      border: 1px solid #ccc;
+      border-bottom-width: 2px;
+      transition: all 0.3s ease;
+    }
+    .user-details .input-box input:focus,
+    .user-details .input-box input:valid {
+      border-color: #9b59b6;
+    }
+    form .button {
+      height: 45px;
+      margin: 35px 0;
+      display: flex;
+      gap: 15px;
+    }
+    form .button input {
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+    }
+    form .button input[type="reset"] {
+      background: linear-gradient(135deg, #e67171, #b65959);
+    }
+    form .button input:hover {
+      background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+    }
+    form .button input[type="reset"]:hover {
+      background: linear-gradient(-135deg, #e67171, #b65959);
+    }
+    .custom-dropdown {
+      width: 250px;
+      height: 40px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .custom-level {
+      font-weight:500;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+    }
+    .error-message {
+      color: red;
+      font-size: 12px;
+      margin-top: 5px;
+      /* display: none; */
+    }
+    .signup-link {
+      /* text-align: center; */
+      margin-top: 20px;
+  }
+  .signup-link a {
+      color: #1E90FF;
+      text-decoration: none;
+  }
+  .signup-link a:hover {
+      text-decoration: underline;
+  }
+    .phone-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .country-code {
+      width: 80px;
+      height: 45px;
+      padding-left: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .phone-number {
+      flex: 1;
+    }
+    .user-details .input-box input::placeholder {
+      font-size: 14px;
+      color: #999;
+      opacity: 1;
+    }
+
+    /* Success Popup Styles */
+    .success-popup-overlay {
+      /* display: none; */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    /* transform: translate(-50%,-50%); */
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  .success-popup-content {
+    background: #4CAF50;
+    color: white;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 535px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    animation: popIn 0.4s ease-out;
+  }
+  .success-popup-content h3 {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  .success-popup-content p {
+    margin: 0.3rem 0;
+    font-weight: 500;
+    /* margin-bottom: 20px; */
+  }
+  .success-popup-content .popup-close-btn {
+    background: white;
+    color: #4CAF50;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .success-popup-content .user1-info{
+      margin: 1rem 0;
+      font-size: 1rem;
+      color: #f0fdf4
+  }
+  .success-popup-content .popup-close-btn:hover {
+    background: #f0f0f0;
+  }
+  @keyframes popIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Responsive styles */
+  @media(max-width: 584px) {
+    .container {
+      max-width: 100%;
+    }
+    form .user-details .input-box {
+      margin-bottom: 15px;
+      width: 100%;
+    }
+    .phone-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .country-code {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  }
+  @media(max-width: 459px) {
+    form .button {
+      flex-direction: column;
+      height: auto;
+    }
+    form .button input {
+      margin-bottom: 10px;
+    }
+  }
+
+  input.ng-touched.ng-invalid{
+      border: 1px solid red;
+  }
+ 
+  /* Error Popup Styles */
+.error-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-popup-content {
+  background: #f44336;
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 535px;
+  width: 90%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: popIn 0.4s ease-out;
+}
+
+.error-popup-content h3 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.error-popup-content p {
+  margin: 0.3rem 0;
+  font-weight: 500;
+}
+
+.error-popup-content .popup-close-btn {
+  background: white;
+  color: #f44336;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 15px;
+}
+
+.error-popup-content .popup-close-btn:hover {
+  background: #f0f0f0;
+}

@@ -1,0 +1,104 @@
+<div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="text" formControlName="fullName" placeholder="Enter your name (max 50 chars)" (keypress)="restrictInput($event, 'text')" />
+            <div class="error-message" *ngIf="fullName.invalid && fullName.touched">
+              Name must be 2-50 characters
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" maxlength="50" formControlName="email" placeholder="Enter your email" />
+            <div class="error-message" *ngIf="email.invalid && email.touched">
+              Please enter a valid email 
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span> 
+            <div class="phone-container">
+              <select class="country-code" formControlName="countryCode">
+                <option value="+1">+1 (USA)</option>
+                <option value="+44">+44 (UK)</option>
+                <option value="+91">+91 (India)</option>
+                <option value="+61">+61 (Australia)</option>
+              </select>
+              <input type="tel" formControlName="phoneNumber" class="phone-number" placeholder="Enter 10-digit number" (keypress)="restrictInput($event, 'number')"/>
+            </div>
+            <div class="error-message" *ngIf="phoneNumber.invalid && phoneNumber.touched">
+            Please enter 10 digits starting from 6-9
+            </div>
+          </div>
+          <div class="input-box">
+            <span class="details">Address</span>
+            <input type="text" maxlength="50" formControlName="address" placeholder="Enter your complete address"/>
+            <div class="error-message" *ngIf="address.invalid && address.touched">
+                Address is required
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Password</span>
+              <input type="password" maxlength="30" formControlName="password" minlength="8" placeholder="Enter password (8-30 chars)"/>
+              <div class="error-message" *ngIf="password.invalid && password.touched">
+                <div *ngIf="password.errors?.['required']"> Password is required</div>
+                <div *ngIf="password.errors?.['minlength']"> Password must be atleast 8 characters</div>
+                <div *ngIf="password.errors?.['maxlength']"> Password can't be more than 30 characters</div>
+                <div *ngIf="password.errors?.['pattern']"> Password must include uppercase, lowercase, number, and special character</div>
+              </div>
+            </div>
+            <div class="input-box">
+              <span class="details">Confirm Password</span>
+              <input type="password" formControlName="confirmPassword" placeholder="Confirm your password"/>
+              <div class="error-message" *ngIf="registrationForm.hasError('mismatch') && confirmPassword.touched">
+                Passwords don't match
+              </div>
+            </div>
+          </div>
+          <div>
+            <label class="custom-level">Notification Type:</label>
+            <select class="custom-dropdown" formControlName="notification">
+              <option value="email">Email Notification</option>
+              <option value="mobile">Mobile Notification</option>
+              <option value="both">Both</option>
+            </select>
+          </div>
+          <div class="signup-link">
+            <p>Already have an account? <a routerLink="/login">Login</a></p>
+          </div>
+          <div class="button">
+            <input type="submit" value="Register" />
+            <input type="button" value="Reset" (click)="onReset()" />
+          </div>
+    
+        </form>
+      </div>
+    </div>
+    
+    <!-- Success Popup -->
+ <div class="success-popup-overlay" *ngIf="successPopup">
+    <div class="success-popup-content">
+      <h3>Welcome, {{registeredUserName}}</h3>
+      <h4>Registration Successful!</h4>
+      <div class="user1-info">
+        <p>Customer ID: <span>{{registeredId}}</span></p>
+      </div>
+      <button class="popup-close-btn" routerLink="/login">
+        Continue to Login
+      </button>
+    </div>
+  </div>
+  
+  <!-- Error Popup -->
+  <div class="error-popup-overlay" *ngIf="errorPopup">
+    <div class="error-popup-content">
+      <h3>Registration Failed</h3>
+      <p>{{errorMessage}}</p>
+      <button class="popup-close-btn" (click)="closeErrorPopup()">
+        OK
+      </button>
+    </div>
+  </div>
+ 
