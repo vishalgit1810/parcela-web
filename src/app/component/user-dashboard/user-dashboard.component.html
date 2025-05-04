@@ -1,1 +1,66 @@
-<p>user-dashboard works!</p>
+<div class="body2">
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Parcela</div>
+                <div class="nav-links">
+                    <a routerLink="/user-dashboard">Home</a>
+                    <a routerLink="/booking">Book</a>
+                    <a routerLink="/tracking">Track</a>
+                    <a routerLink="/previous">My Bookings</a>
+                </div>
+                <div class="user-info">
+                    <span>Welcome, <span id="username">{{ username }}</span></span>
+                    <button class="logout-btn" (click)="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content1">
+        <div class="container">
+            <section class="welcome-section">
+                <h1 class="welcome-title" id="welcome-message">{{ welcomeMessage }}</h1>
+            </section>
+    
+            <section class="menu-buttons">
+                <button class="menu-button" (click)="navigateTo('home')">
+                    <div class="button-icon">🏠</div>
+                    <div class="button-title">Home</div>
+                </button>
+    
+                <button class="menu-button" (click)="navigateTo('bookings')">
+                    <div class="button-icon">📦</div>
+                    <div class="button-title">Book Parcel</div>
+                </button>
+    
+                <button class="menu-button" (click)="navigateTo('tracking')">
+                    <div class="button-icon">🔍</div>
+                    <div class="button-title">Track Parcel</div>
+                </button>
+    
+                <button class="menu-button" (click)="navigateTo('home')">
+                    <div class="button-icon">📋</div>
+                    <div class="button-title">My Bookings</div>
+                </button>
+    
+                <button class="menu-button" (click)="navigateTo('home')">
+                    <div class="button-icon">🛟</div>
+                    <div class="button-title">Support</div>
+                </button>
+    
+                <button class="menu-button" (click)="navigateTo('home')">
+                    <div class="button-icon">🚪</div>
+                    <div class="button-title">Write Feedback</div>
+                </button>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Parcela. All rights reserved.</p>
+        </div>
+    </footer>
+    </div>
+ 
