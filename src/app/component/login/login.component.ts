@@ -1,4 +1,3 @@
-// login.component.ts
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -32,12 +31,14 @@ export class LoginComponent {
     });
   }
 
+  get userIdControl() { return this.loginForm.get('userId')!; }
+  get passwordControl() { return this.loginForm.get('password')!; }
+
   selectLoginType(type: 'user' | 'admin'): void {
     this.loginType = type;
     this.loginForm.reset();
     this.loginError = '';
     
-    // Update validators based on login type
     const userIdControl = this.loginForm.get('userId');
     if (type === 'admin') {
       userIdControl?.setValidators([Validators.required, Validators.pattern(/^admin@abc\.com$/)]);
@@ -65,7 +66,6 @@ export class LoginComponent {
 
   private handleAdminLogin(email: string, password: string): void {
     if (email === 'admin@abc.com' && password === 'Admin@123') {
-      // For admin, we'll just set a flag in localStorage
       localStorage.setItem('isAdminLoggedIn', 'true');
       this.showSuccessPopup = true;
       this.successMessage = 'Admin login successful!';
