@@ -1,3 +1,4 @@
+// user.service.ts
 import { Injectable } from '@angular/core';
 import { Customer } from 'src/app/models/customer.model';
 
@@ -26,11 +27,10 @@ export class UserService {
   }
 
   static isLoggedIn(): boolean {
-    return this.getCurrentUser() !== null;
+    return this.getCurrentUser() !== null || localStorage.getItem('isAdminLoggedIn') === 'true';
   }
 
   static isAdmin(): boolean {
-    const user = this.getCurrentUser();
-    return user ? user.email === 'admin@abc.com' : false;
+    return localStorage.getItem('isAdminLoggedIn') === 'true';
   }
 }

@@ -1,1 +1,59 @@
-<p>admin-dashboard works!</p>
+<!-- admin-dashboard.component.html -->
+<header class="header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">Parcela</div>
+        <div class="nav-links">
+          <a routerLink="/admin-dashboard">Home</a>
+          <a routerLink="/bookingAdmin">Book</a>
+          <a routerLink="/trackingAdmin">Track</a>
+          <a routerLink="/viewall-bookings">View All Bookings</a>
+        </div>
+        <div class="user-info">
+          <span>Welcome, Admin</span>
+          <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </div>
+</header>
+
+<main class="main-content">
+    <div class="container">
+      <section class="welcome-section">
+        <h1 class="welcome-title">{{ welcomeMessage }}</h1>
+      </section>
+  
+      <section class="menu-buttons">
+        <button class="menu-button" routerLink="/bookingAdmin">
+          <div class="button-icon">📦</div>
+          <div class="button-title">Book a Parcel</div>
+        </button>
+        <button class="menu-button" routerLink="/track-admin">
+          <div class="button-icon">🔍</div>
+          <div class="button-title">Tracking</div>
+        </button>
+        <button class="menu-button" routerLink="/delivery">
+          <div class="button-icon">📊</div>
+          <div class="button-title">Update Delivery Status</div>
+        </button>
+        <button class="menu-button" routerLink="/pick-drop-update">
+          <div class="button-icon">⏱️</div>
+          <div class="button-title">Pickup Scheduling</div>
+        </button>
+        <button class="menu-button" routerLink="/viewall-bookings">
+          <div class="button-icon">📋</div>
+          <div class="button-title">View All Bookings</div>
+        </button>
+        <button class="menu-button" routerLink="/viewall-feedbacks">
+          <div class="button-icon">🚪</div>
+          <div class="button-title">View all Feedbacks</div>
+        </button>
+      </section>
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Parcela. All rights reserved.</p>
+    </div>
+</footer>
